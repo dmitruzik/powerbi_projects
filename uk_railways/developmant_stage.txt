@@ -1,0 +1,110 @@
+Development Stage:
+Data required includes:
+Data on Delays and Cancellations: Specifically, records of trains that were delayed or canceled, including:
+•	Transaction numbers for each ticket.
+•	Date and time of the journey and purchase.
+•	Details of the departure and arrival stations.
+•	Journey status (on time, delayed, or canceled).
+Sources and Additional Data:
+•	Primary Source: The provided dataset (cleaned_railway.csv) contains critical information on delay and cancellation records.
+•	Additional Data: During the planning stage, I explored other sources of train operation data but decided to narrow the focus to datasets directly detailing delays and cancellations, as these best align with the project’s scope.
+Adjustments Since Planning:
+•	I initially considered including ticket pricing or customer demographics, but decided against it as it didn’t directly impact the delay and cancellation analysis.
+•	The scope remains focused on understanding patterns in delays and cancellations, and the collected data sufficiently supports this approach.
+The Data sets for my project are here: uk_railway_data 
+Columns with Potential Privacy Implications:
+1.	Transaction ID: A unique identifier that could potentially link to customer records.
+2.	Payment Method: Indicates how the payment was made (e.g., Credit Card, Contactless). While not directly personal, it might correlate with payment records elsewhere.
+3.	Departure/Arrival Stations and Dates/Times of Journey:
+•	These data points can help identify individual travel patterns.
+4.	Ticket Type and Price: Reveals purchasing habits and potentially socioeconomic status.
+Identified Sources of Bias:
+1.	Imbalance in Purchase Type:
+•	Online purchases (18,521) significantly outnumber station purchases (13,132), which might skew insights toward online customers.
+2.	Overrepresentation of Certain Departure Stations:
+•	Manchester Piccadilly, London Euston, and Liverpool Lime Street dominate departures. Smaller stations like Oxford or Bristol Temple Meads have minimal representation.
+3.	Payment Method Skew:
+•	Credit Card (19,136) and Contactless (10,834) dominate, while Debit Card (1,683) usage is underrepresented.
+4.	Railcard Imbalance:
+•	The majority have no railcard (20,918), while specific categories like Disabled (3,089) and Senior (2,800) are underrepresented.
+5.	Journey Status Disparity:
+•	Most journeys are recorded as “On Time” (27,481), while delays (2,292) and cancellations (1,880) are significantly fewer. This might understate issues in rail services.
+6.	Reasons for Delay Duplication:
+•	Variants of similar issues (e.g., “Signal Failure” and “Signal failure”) indicate inconsistent data entry, which could bias delay analysis.
+7.	Refund Requests:
+•	Most customers (30,535) did not request refunds, which may not reflect actual customer dissatisfaction if some avoided requesting refunds.
+8.	Price Range and Ticket Class:
+•	Standard tickets (28,595) overwhelmingly outnumber First Class (3,058), and most prices are below the mean of £23.44, potentially leading to bias in pricing insights.
+1. Missing or Incomplete Data
+•	Observation: No missing data was found in this dataset.
+•	Impact: While there are no immediate concerns, it’s important to maintain consistent data validation practices to avoid missing records in future updates.
+________________________________________
+2. Inconsistent Data Entries
+•	Example: Variations in the “Reason for Delay” field, such as “Signal Failure” and “Signal failure”.
+•	Impact:
+•	Skewed insights during delay analysis due to fragmented categories.
+•	Challenges in aggregating data for meaningful insights.
+________________________________________
+3. Imbalanced Data
+•	Example: Overrepresentation of certain categories like:
+•	Departure stations (e.g., Manchester Piccadilly, London Euston).
+•	Payment methods (e.g., Credit Card).
+•	Ticket classes (Standard > First Class).
+•	Impact:
+•	Insights may not generalize to the entire customer base.
+•	Overrepresented categories may dominate decision-making, ignoring smaller segments.
+4. Duplicated or Redundant Information
+•	Example: Similar “Reason for Delay” entries that are semantically identical.
+•	Impact:
+•	Inflated importance of certain issues due to perceived higher frequency.
+•	Misleading conclusions about operational challenges.
+________________________________________
+5. Lack of Contextual Information
+•	Example: Limited granularity in the “Railcard” or “Reason for Delay” categories.
+•	Impact:
+•	Important subcategories (e.g., specific types of technical issues or railcards) are not captured, potentially missing nuances.
+•	Reduced effectiveness of targeted policy decisions.
+________________________________________
+6. Outliers and Extreme Values
+•	Example: Ticket prices vary significantly, with a maximum of £267 while most are below the mean of £23.44.
+•	Impact:
+•	Outliers could skew averages, leading to inaccurate pricing strategies.
+•	Misinterpretation of customer spending patterns.
+________________________________________
+7. Data Entry Errors
+•	Example: Typos or mixed capitalization in categorical fields like “Reason for Delay”.
+•	Impact:
+•	Reduces confidence in data quality.
+•	Requires additional preprocessing, increasing analysis time.
+After analyzing collected data about UK railways in my datasets, I implemented some filtering techniques and cleaned them. I worked with the main dataset, which is called railway_db.xls. Before I extracted the data from it and created other relevant datasets I did some data cleaning.
+•	In the column Time of Purchase and Departure time, Arrival time and ctual arrival time I removed millisecond, left (HH:MM: SS),and added PM, or AM
+•	In the column “Reason for delay,” I removed empty lines with no delays.
+•	In the column “Price”, I changed the data type and added the currency symbol.
+•	In the column “Date of Purchase” and “Date of Jurney” I set the type as data.
+•	All are sorted by “Date of Purchase”. Other columns were unchanged.
+I have calculated and displayed the summary metrics for UK railway dataset, providing insights into:
+•	Total delays and cancelations.
+•	The percentage of delays and cancelations due to specific reasons.
+•	Average delay time, minutes.
+•	Average ticket price (delay/cancel).
+•	Total refund requests.
+•	Percentage of refund requests.
+•	Total revenue (delay/cancel).
+Insights from the Analysis of Delayed and Canceled Journeys:
+1.	Total Delayed and Canceled Journeys:
+•	A significant number of journeys (2,292) were either delayed or canceled, indicating that operational issues affecting punctuality are not uncommon.
+2.	Revenue Impact:
+•	These delayed and canceled journeys generated a total revenue of £126,814, with an average ticket price of £55.33. This is significantly higher than the average ticket price across all transactions (£23.44), suggesting that delays and cancellations might disproportionately affect higher-value tickets (e.g., longer journeys or premium services).
+3.	Delay Duration:
+•	The average delay duration is 95.27 minutes, which is over 1.5 hours. Such extensive delays could significantly disrupt travel plans, leading to customer dissatisfaction and potential financial penalties (e.g., refunds).
+4.	Refund Requests:
+•	Approximately 546 journeys in this subset had refund requests, making up around 23.8% of delayed and canceled journeys. While not all delays result in refunds, this percentage underscores the operational and financial consequences of not meeting service standards.
+5.	Common Reasons for Delays:
+•	Analyzing the reasons for delays can reveal systemic issues. For instance, if certain causes (e.g., “Signal Failure” or “Weather Conditions”) are disproportionately represented, it points to specific areas where infrastructure, resource management, or contingency planning needs improvement.
+Here are the separate percentages for delays and cancellations by cause:
+•	Delays due to Weather: 40.45%
+•	Cancellations due to Weather: 23.67%
+•	Delays due to Other Reasons: 59.55%
+•	Cancellations due to Other Reasons: 76.33%
+These breakdowns provide a detailed view of the impact of different causes on delays and cancellations.
+
