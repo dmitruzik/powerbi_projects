@@ -1,0 +1,13 @@
+1. how many properties was sold in Europe. Need to choose all EU countries
+
+2.what is an average property size?
+
+3. which property type is most popular?
+
+4.verage construction year
+
+5. Average property price.
+
+6. Average number of bedrooms.
+
+7. Average loan amount.
