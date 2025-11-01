@@ -1,0 +1,10 @@
+
+DAX measures:
+
+% Cancelled = DIVIDE([Cancelled Flights], [Total flights],"-")
+% Delayed = DIVIDE([Delayed Flights], [Total flights],"-")
+% On-Time = DIVIDE([On-Time Flights], [Total flights],"-")
+Cancelled Flights = CALCULATE([Total flights], flights[Status]="Cancelled")
+Delayed Flights = CALCULATE([Total flights], flights[Status]="Dellay")
+On-Time Flights = CALCULATE([Total flights], flights[Status]="On-Time")
+Total flights = COUNTROWS(flights)
