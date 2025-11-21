@@ -1,0 +1,14 @@
+Amount of exit employee: 
+ExitAmount = AVERAGE('employee_data'[ExitDate])
+
+Work Life Balance:
+% Average WL Balance = AVERAGE('employee_engagement_survey_data'[Work-Life Balance])/5
+
+Engagement:
+% Average Engagement = AVERAGE(employee_engagement_survey_data[Engagement]) / 5
+
+Satisfaction:
+% AverageSatisfaction = AVERAGE(employee_engagement_survey_data[Satisfaction]) / 5
+
+Calendar:
+Calendar = CALENDAR(MIN('employee_engagement_survey_data'[Survey Date]), MAX('employee_engagement_survey_data'[Survey Date]))

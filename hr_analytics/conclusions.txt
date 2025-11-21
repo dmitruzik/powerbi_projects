@@ -1,0 +1,15 @@
+Unsers for important questions:
+
+What is the overall level of employee engagement and satisfaction?
+The overall level of engagement is 59%. And the overall level of satisfaction is also 59%.
+
+Are there specific departments or business units where engagement and satisfaction are below the company average?
+
+The satisfaction level in Software Engineering is below the company average.
+And the engagement level in Sales is also below the average.
+
+How has work-life balance changed over the past year?
+Work-life balance has fluctuated from 52% to 65% over the year.
+
+How many employees have we lost, and can we see their performance metrics?
+We have lost 123 employees. So we can see their performance metrics.
